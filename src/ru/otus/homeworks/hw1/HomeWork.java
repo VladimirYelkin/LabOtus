@@ -1,3 +1,5 @@
+package ru.otus.homeworks.hw1;
+
 import java.util.Base64;
 import java.util.Scanner;
 
