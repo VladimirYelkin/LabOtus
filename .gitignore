@@ -1,6 +1,8 @@
 #IDEA
 .idea
-LabOtus.iml
+*.iml
+*.iws
+*.ipr
 out
 
 # Compiled class file
