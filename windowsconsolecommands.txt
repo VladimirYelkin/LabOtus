@@ -1,0 +1,8 @@
+# пути до исходных фалов Java с текущей директории рекурсивно
+WHERE /R .\ *.java  > sourceJava.txt
+
+# компиляция из текущей директории всех классов найденных в пункте выше
+javac -d .\out\ @sourceJava.txt
+
+# запуск конкретного класса ex. HomeWork: 
+java -cp .\out\ ru.otus.homeworks.hw1.HomeWork
