@@ -15,17 +15,17 @@ public class HomeWork {
         int correctCount = 0, wrongCount = 0;
         String[][][] questAndAnswer = {{{"Какому примитивному типу данных соответсвует диапозон от -2147483648 до 2147483647 "}, {"byte", "short", "int","long"}, {"3"}},
                 {{"какой тип переменной будет у переменной после компиляции в таком варианте var k=34.694;"}, {"String", "char[]", "double", "int","float"}, {"3"}},
-                {{"какое ключевое слово использыется для создания константы "}, {"constant", "final", "static", "private", "protected"}, {"2"}}
+                {{"какое ключевое слово используется для создания константы "}, {"constant", "final", "static", "private", "protected"}, {"2"}}
         };
         for (int i = 0; i < questAndAnswer.length; i++) {
-            System.out.println(QUEST + (i + 1) + ":" + questionFrom(questAndAnswer, i));
+            System.out.println(QUEST + (i + 1) + ":" + questionFromArray(questAndAnswer, i));
             System.out.println(ANSWERS);
-            String[] answers = answersFrom(questAndAnswer, i);
+            String[] answers = answersFromArray(questAndAnswer, i);
             for (int j = 0; j < answers.length; j++) {
                 System.out.println((j + 1) + ": " + answers[j]);
             }
             System.out.printf(PROMPT,1,answers.length);
-            if (readAnswer(answers.length).equalsIgnoreCase(getCheckAnswer(questAndAnswer, i))) {
+            if (readAnswerFromConsole(answers.length).equalsIgnoreCase(getCorrectAnswerFromArray(questAndAnswer, i))) {
                 correctCount++;
                 System.out.println(CORRECT_TXT);
             } else {
@@ -37,21 +37,21 @@ public class HomeWork {
         System.out.printf(RESULT_OUTPUT,correctCount,wrongCount);
     }
 
-    static String questionFrom(String[][][] questAndAnswer, int index) {
+    static String questionFromArray(String[][][] questAndAnswer, int index) {
         return questAndAnswer[index][0][0];
     }
 
-    static String getCheckAnswer(String[][][] questAndAnswer, int index) {
+    static String getCorrectAnswerFromArray(String[][][] questAndAnswer, int index) {
         return questAndAnswer[index][2][0];
     }
 
-    static String[] answersFrom(String[][][] questAndAnswer, int index) {
+    static String[] answersFromArray(String[][][] questAndAnswer, int index) {
         String[] result = new String[questAndAnswer[index][1].length];
         System.arraycopy(questAndAnswer[index][1], 0, result, 0, result.length);
         return result;
     }
 
-    static String readAnswer(int maxNumberAnswers) {
+    static String readAnswerFromConsole(int maxNumberAnswers) {
         Scanner scanner = new Scanner(System.in);
         int answer;
         do {
