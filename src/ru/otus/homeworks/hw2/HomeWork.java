@@ -13,9 +13,9 @@ public class HomeWork {
 
     public static void main(String[] args) {
         int correctCount = 0, wrongCount = 0;
-        String[][][] questAndAnswer = {{{"quest1"}, {"answer11!", "answer12", "answ13"}, {"1"}},
-                {{"q2"}, {"a21", "a22", "a23!", "a24"}, {"3"}},
-                {{"q3"}, {"a31", "a32!", "a33", "a34", "a35"}, {"2"}}
+        String[][][] questAndAnswer = {{{"Какому примитивному типу данных соответсвует диапозон от -2147483648 до 2147483647 "}, {"byte", "short", "int","long"}, {"3"}},
+                {{"какой тип переменной будет у переменной после компиляции в таком варианте var k=34.694;"}, {"String", "char[]", "double", "int","float"}, {"3"}},
+                {{"какое ключевое слово использыется для создания константы "}, {"constant", "final", "static", "private", "protected"}, {"2"}}
         };
         for (int i = 0; i < questAndAnswer.length; i++) {
             System.out.println(QUEST + (i + 1) + ":" + questionFrom(questAndAnswer, i));
