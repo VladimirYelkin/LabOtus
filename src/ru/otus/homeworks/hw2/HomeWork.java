@@ -14,7 +14,7 @@ public class HomeWork {
     public static void main(String[] args) {
         int correctCount = 0, wrongCount = 0;
         String[][][] questAndAnswer = {{{"Какому примитивному типу данных соответсвует диапозон от -2147483648 до 2147483647 "}, {"byte", "short", "int","long"}, {"3"}},
-                {{"какой тип переменной будет у переменной после компиляции в таком варианте var k=34.694;"}, {"String", "char[]", "double", "int","float"}, {"3"}},
+                {{"какой тип будет у переменной после компиляции в таком варианте var k=34.694;"}, {"String", "char[]", "double", "int","float"}, {"3"}},
                 {{"какое ключевое слово используется для создания константы "}, {"constant", "final", "static", "private", "protected"}, {"2"}}
         };
         for (int i = 0; i < questAndAnswer.length; i++) {
