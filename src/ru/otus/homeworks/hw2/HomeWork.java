@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class HomeWork {
     private static final String QUEST = "Вопрос ";
     private static final String ANSWERS = "Варианты ответа:";
-    private static final String PROMPT = "Введите ответ:";
+    private static final String PROMPT = "Введите ответ от %d до %d: \n";
     private static final String CORRECT_TXT = "Верно";
     private static final String ERROR_TXT = "Ошибка";
     private static final String RESULT_OUTPUT = "Правильных ответов: %d\tНеправильных ответов: %d";
@@ -24,8 +24,8 @@ public class HomeWork {
             for (int j = 0; j < answers.length; j++) {
                 System.out.println((j + 1) + ": " + answers[j]);
             }
-            System.out.println(PROMPT);
-            if (readAnswer().equalsIgnoreCase(getCheckAnswer(questAndAnswer, i))) {
+            System.out.printf(PROMPT,1,answers.length);
+            if (readAnswer(answers.length).equalsIgnoreCase(getCheckAnswer(questAndAnswer, i))) {
                 correctCount++;
                 System.out.println(CORRECT_TXT);
             } else {
@@ -51,11 +51,13 @@ public class HomeWork {
         return result;
     }
 
-    static String readAnswer() {
+    static String readAnswer(int maxNumberAnswers) {
         Scanner scanner = new Scanner(System.in);
-        //TODO String.valueOf()
-        String answer = scanner.nextLine();
-        return answer;
+        int answer;
+        do {
+             answer = scanner.nextInt();
+        } while ((answer <1) || (answer > maxNumberAnswers));
+        return String.valueOf(answer);
 
     }
 }
