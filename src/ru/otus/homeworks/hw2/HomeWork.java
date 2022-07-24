@@ -20,8 +20,8 @@ public class HomeWork {
                 {{"какое ключевое слово используется для создания константы "}, {"constant", "final", "static", "private", "protected"}, {2}},
                 {{"quest4"}, {"answer41", "answer42", "answer43", "answer44"}, {1}}};
         String questToArray = "questFromMethod5";
-        String [] answersToArrays = {"answers51","answers52","answers53"};
-        addQuestAndAswers(questAndAnswer,questToArray,answersToArrays,1);
+        String[] answersToArrays = {"answers51", "answers52", "answers53"};
+        addQuestAndAswers(questAndAnswer, questToArray, answersToArrays, 1);
 
         for (int i = 0; i < questAndAnswer.length; i++) {
             System.out.println(QUEST + (i + 1) + ":" + questionFromArray(questAndAnswer, i));
@@ -30,9 +30,8 @@ public class HomeWork {
             for (int j = 0; j < answers.length; j++) {
                 System.out.println((j + 1) + ": " + answers[j]);
             }
-            System.out.printf(PROMPT, 1, answers.length);
             int maxNumberAnswer = answers.length;
-
+            System.out.printf(PROMPT, 1, maxNumberAnswer);
             if (checkAnswer(readAnswerFromConsole(maxNumberAnswer), getCorrectAnswerFromArray(questAndAnswer, i))) {
                 correctCount++;
             } else {
@@ -44,9 +43,9 @@ public class HomeWork {
 
     private static void showQuestandAnswersArray(Object[][][] showArray) {
         for (int i = 0; i < showArray.length; i++) {
-            System.out.println(questionFromArray(showArray,i));
-            System.out.println(Arrays.toString(answersFromArray(showArray,i)));
-            System.out.println(getCorrectAnswerFromArray(showArray,i));
+            System.out.println(questionFromArray(showArray, i));
+            System.out.println(Arrays.toString(answersFromArray(showArray, i)));
+            System.out.println(getCorrectAnswerFromArray(showArray, i));
         }
     }
 
@@ -55,7 +54,7 @@ public class HomeWork {
         showQuestandAnswersArray(inArray);
         Object[][][] returnArray = null;
 
-          return returnArray;
+        return returnArray;
     }
 
     private static boolean checkAnswer(int answerFromConsole, int answerFromArray) {
