@@ -16,17 +16,23 @@ public class HomeWork {
         int correctCount = 0, wrongCount = 0;
 
         Object[][][] questAndAnswer = {{{"Какому примитивному типу данных соответсвует диапозон от -2147483648 до 2147483647 "}, {"byte", "short", "int", "long"}, {3}},
-                {{"какой тип будет у переменной после компиляции в таком варианте var k=34.694;"}, {"String", "char[]", "double", "int", "float"}, {3}},
-                {{"какое ключевое слово используется для создания константы "}, {"constant", "final", "static", "private", "protected"}, {2}},
-                {{"quest4"}, {"answer41", "answer42", "answer43", "answer44"}, {1}}};
-        String questToArray = "questFromMethod5";
-        String[] answersToArrays = {"answers51", "answers52", "answers53"};
-        addQuestAndAswers(questAndAnswer, questToArray, answersToArrays, 1);
+                {{"Какой тип будет у переменной после компиляции в таком варианте var k=34.694;"}, {"String", "char[]", "double", "int", "float"}, {3}},
+                {{"Какое ключевое слово используется для создания константы "}, {"constant", "final", "static", "private", "protected"}, {2}},
+                {{"Какой оператор используется для перехода к следующей итерации цикла?"}, {"break", "goto", "return", "continue"}, {4}}};
+
+        String questToArray = "Какой из циклов выполнится хотя бы один раз";
+        String[] answersToArrays = {"for ", "do-while", "while"};
+        Integer correctAnswer = 2;
+        questAndAnswer = addQuestAndAswers(questAndAnswer, questToArray, answersToArrays, correctAnswer);
+
+        System.out.println("--New Array of Q&A--");
+        showQuestandAnswersArray(questAndAnswer);
 
         for (int i = 0; i < questAndAnswer.length; i++) {
             System.out.println(QUEST + (i + 1) + ":" + questionFromArray(questAndAnswer, i));
             System.out.println(ANSWERS);
             String[] answers = answersFromArray(questAndAnswer, i);
+
             for (int j = 0; j < answers.length; j++) {
                 System.out.println((j + 1) + ": " + answers[j]);
             }
@@ -49,10 +55,30 @@ public class HomeWork {
         }
     }
 
-    private static Object[][][] addQuestAndAswers(Object[][][] inArray, String quest, String[] answers, int correcrtAnswer) {
+    private static Object[][][] addQuestAndAswers(Object[][][] inArray, String quest, String[] answers, Integer correctAnswer) {
         //TODO : addative elemets to Arrays of Objects[][][]
-        showQuestandAnswersArray(inArray);
-        Object[][][] returnArray = null;
+        //showQuestandAnswersArray(inArray);
+        int numbersOfQuestions = inArray.length;
+        Object[][][] returnArray = new Object[(numbersOfQuestions + 1)][][];
+        for (int i = 0; i < numbersOfQuestions; i++) {
+            returnArray[i] = new Object[inArray[i].length][];
+            for (int j = 0; j < inArray[i].length; j++) {
+                returnArray[i][j] = new Object[inArray[i][j].length];
+                System.arraycopy(inArray[i][j], 0, returnArray[i][j], 0, inArray[i][j].length);
+            }
+        }
+
+        returnArray[numbersOfQuestions] = new Object[3][];
+        returnArray[numbersOfQuestions][0] = new Object[1];
+        returnArray[numbersOfQuestions][0][0] = quest;
+
+        returnArray[numbersOfQuestions][1] = new Object[answers.length];
+        System.arraycopy(answers, 0, returnArray[numbersOfQuestions][1], 0, answers.length);
+
+        returnArray[numbersOfQuestions][2] = new Object[1];
+        returnArray[numbersOfQuestions][2][0] = correctAnswer;
+
+        //showQuestandAnswersArray(returnArray);
 
         return returnArray;
     }
