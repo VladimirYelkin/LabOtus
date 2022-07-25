@@ -1,6 +1,5 @@
 package ru.otus.homeworks.hw2;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class HomeWork {
@@ -20,13 +19,10 @@ public class HomeWork {
                 {{"Какое ключевое слово используется для создания константы "}, {"constant", "final", "static", "private", "protected"}, {2}},
                 {{"Какой оператор используется для перехода к следующей итерации цикла?"}, {"break", "goto", "return", "continue"}, {4}}};
 
-        String questToArray = "Какой из циклов выполнится хотя бы один раз";
+        String questToArray = "Какой из циклов выполнится хотя бы один раз?";
         String[] answersToArrays = {"for ", "do-while", "while"};
         Integer correctAnswer = 2;
         questAndAnswer = addQuestAndAswers(questAndAnswer, questToArray, answersToArrays, correctAnswer);
-
-        System.out.println("--New Array of Q&A--");
-        showQuestandAnswersArray(questAndAnswer);
 
         for (int i = 0; i < questAndAnswer.length; i++) {
             System.out.println(QUEST + (i + 1) + ":" + questionFromArray(questAndAnswer, i));
@@ -47,17 +43,7 @@ public class HomeWork {
         System.out.printf(RESULT_OUTPUT, correctCount, wrongCount);
     }
 
-    private static void showQuestandAnswersArray(Object[][][] showArray) {
-        for (int i = 0; i < showArray.length; i++) {
-            System.out.println(questionFromArray(showArray, i));
-            System.out.println(Arrays.toString(answersFromArray(showArray, i)));
-            System.out.println(getCorrectAnswerFromArray(showArray, i));
-        }
-    }
-
     private static Object[][][] addQuestAndAswers(Object[][][] inArray, String quest, String[] answers, Integer correctAnswer) {
-        //TODO : addative elemets to Arrays of Objects[][][]
-        //showQuestandAnswersArray(inArray);
         int numbersOfQuestions = inArray.length;
         Object[][][] returnArray = new Object[(numbersOfQuestions + 1)][][];
         for (int i = 0; i < numbersOfQuestions; i++) {
@@ -77,8 +63,6 @@ public class HomeWork {
 
         returnArray[numbersOfQuestions][2] = new Object[1];
         returnArray[numbersOfQuestions][2][0] = correctAnswer;
-
-        //showQuestandAnswersArray(returnArray);
 
         return returnArray;
     }
@@ -104,9 +88,6 @@ public class HomeWork {
     private static String[] answersFromArray(Object[][][] questAndAnswer, int index) {
         String[] result = new String[questAndAnswer[index][1].length];
         System.arraycopy(questAndAnswer[index][1], 0, result, 0, result.length);
-//        for (int i = 0; i < questAndAnswer[index][1].length; i++) { // system.arraycopy is best SUGAR
-//            result[i] = (String) questAndAnswer[index][1][i];       //
-//        }                                                           //
         return result;
     }
 
@@ -117,7 +98,6 @@ public class HomeWork {
             answer = scanner.nextInt();
         } while ((answer < 1) || (answer > maxNumberAnswers));
         return answer;
-
     }
 
 }
