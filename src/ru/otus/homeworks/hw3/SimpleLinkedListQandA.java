@@ -2,9 +2,11 @@ package ru.otus.homeworks.hw3;
 
 public class SimpleLinkedListQandA {
 
-    private NodeList first = new NodeList();
-    private NodeList last = new NodeList();
+    private final NodeList first = new NodeList();
+    private final NodeList last = new NodeList();
     private NodeList currentItem = first;
+
+
     private int indexCurrentItem = 0;
 
     public void printAll() {
@@ -16,7 +18,7 @@ public class SimpleLinkedListQandA {
     }
 
     public int nextItem() {
-        if (currentItem == last) return -1;
+        if ((currentItem == last) || (currentItem.next == last)) return -1;
         if (currentItem == first) {
             currentItem = first.next;
             indexCurrentItem++;
@@ -24,7 +26,6 @@ public class SimpleLinkedListQandA {
             currentItem = currentItem.next;
             indexCurrentItem++;
         }
-        if (currentItem == last) return -1;
         return indexCurrentItem;
     }
 
@@ -32,8 +33,11 @@ public class SimpleLinkedListQandA {
         return currentItem.value;
     }
 
+    public int getIndexCurrentItem() {
+        return indexCurrentItem;
+    }
+
     public void add(QuestAndAnswers value) {
-        //напишите тут ваш код
         NodeList newElement = new NodeList();
         newElement.value = value;
 
@@ -52,7 +56,7 @@ public class SimpleLinkedListQandA {
 
     }
 
-    public class NodeList {
+     class NodeList {
         private NodeList prev;
         private QuestAndAnswers value;
         private NodeList next;

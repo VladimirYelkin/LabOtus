@@ -5,9 +5,7 @@ public class HomeWork {
         SimpleLinkedListQandA listOfQandA = new SimpleLinkedListQandA();
         InitData(listOfQandA);
 
-        while (listOfQandA.nextItem() > 0) {
-            QuestAnswersMachine.ask(listOfQandA.getItem());
-        }
+        QuestAnswersMachine.askAll(listOfQandA);
         QuestAnswersMachine.showResult();
 
     }

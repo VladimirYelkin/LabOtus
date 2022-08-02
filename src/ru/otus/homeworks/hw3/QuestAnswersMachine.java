@@ -15,6 +15,12 @@ public class QuestAnswersMachine {
             System.out.println(ERROR_TXT);
         }
     }
+    public static void askAll (SimpleLinkedListQandA simpleLinkedListQandA) {
+        while (simpleLinkedListQandA.nextItem() > 0) {
+            System.out.println(simpleLinkedListQandA.getIndexCurrentItem());
+            ask(simpleLinkedListQandA.getItem());
+        }
+    }
 
     public static void showResult() {
         System.out.printf(RESULT_OUTPUT, correctCount, wrongCount);

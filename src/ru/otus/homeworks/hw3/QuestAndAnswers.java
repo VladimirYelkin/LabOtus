@@ -5,11 +5,6 @@ public class QuestAndAnswers {
     private static final String ANSWERS = "Варианты ответа:";
 
     String quest;
-
-    public int getCorrectAnswerIndex() {
-        return correctAnswerIndex;
-    }
-
     int correctAnswerIndex;//from 1
     String correctAnswer;
     Answers answers;
@@ -29,11 +24,15 @@ public class QuestAndAnswers {
 
     }
 
-    public QuestAndAnswers (String quest, int correctAnswerIndex, String... answers) {
-        this.correctAnswerIndex =correctAnswerIndex;
-        this.quest=quest;
+    public QuestAndAnswers(String quest, int correctAnswerIndex, String... answers) {
+        this.correctAnswerIndex = correctAnswerIndex;
+        this.quest = quest;
         this.answers = new Answers(answers);
         this.correctAnswer = this.answers.getAnswerOfIndex(correctAnswerIndex);
+    }
+
+    public int getCorrectAnswerIndex() {
+        return correctAnswerIndex;
     }
 
     public void show() {
